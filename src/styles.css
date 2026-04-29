@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  --bg-start: #f3f7ff;
+  --bg-end: #eef6f1;
+  --panel-bg: rgba(255, 255, 255, 0.82);
+  --panel-border: rgba(18, 52, 86, 0.08);
+  --text-main: #10233d;
+  --text-muted: #62748a;
+  --accent: #1f8efa;
+  --accent-deep: #155ec9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(31, 142, 250, 0.18), transparent 28%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.login-page,
+.ticket-page {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.login-page {
+  display: grid;
+  place-items: center;
+}
+
+.login-panel,
+.table-card,
+.chart-card {
+  backdrop-filter: blur(16px);
+}
+
+.login-panel {
+  width: min(100%, 460px);
+  padding: 36px;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: var(--panel-bg);
+  box-shadow: 0 18px 60px rgba(20, 50, 90, 0.12);
+}
+
+.login-header {
+  margin-bottom: 20px;
+}
+
+.login-header h1,
+.page-header h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+}
+
+.login-header p,
+.header-meta {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.ticket-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.role-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--accent-deep);
+  background: rgba(31, 142, 250, 0.12);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(360px, 1fr);
+  gap: 24px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.sub-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.chart-container {
+  width: 100%;
+  height: 420px;
+}
+
+.el-card {
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  background: var(--panel-bg);
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page,
+  .ticket-page {
+    padding: 18px;
+  }
+
+  .login-panel {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chart-container {
+    height: 320px;
+  }
+}
