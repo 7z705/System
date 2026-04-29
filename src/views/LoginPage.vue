@@ -32,6 +32,9 @@ async function handleLogin() {
 <template>
   <div class="login-page">
     <div class="login-panel">
+      <div class="glass-orb orb-a"></div>
+      <div class="glass-orb orb-b"></div>
+
       <div class="login-header">
         <p class="eyebrow">Ticket Center</p>
         <h1>工单管理系统</h1>

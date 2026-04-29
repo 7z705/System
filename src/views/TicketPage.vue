@@ -36,8 +36,14 @@ function renderChart() {
   }
 
   chartInstance.setOption({
+    backgroundColor: 'transparent',
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      borderColor: 'rgba(86, 168, 255, 0.2)',
+      textStyle: {
+        color: '#18324c'
+      }
     },
     grid: {
       left: 40,
@@ -48,14 +54,34 @@ function renderChart() {
     xAxis: {
       type: 'category',
       data: projectSummary.value.map((item) => item.project),
+      axisLine: {
+        lineStyle: {
+          color: 'rgba(110, 154, 204, 0.28)'
+        }
+      },
       axisLabel: {
         interval: 0,
-        rotate: 15
+        rotate: 15,
+        color: 'rgba(24, 50, 76, 0.72)'
+      },
+      axisTick: {
+        show: false
       }
     },
     yAxis: {
       type: 'value',
-      name: '累计工时'
+      name: '累计工时',
+      nameTextStyle: {
+        color: 'rgba(24, 50, 76, 0.58)'
+      },
+      axisLabel: {
+        color: 'rgba(24, 50, 76, 0.66)'
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(110, 154, 204, 0.12)'
+        }
+      }
     },
     series: [
       {
@@ -63,8 +89,13 @@ function renderChart() {
         type: 'bar',
         barWidth: 42,
         itemStyle: {
-          color: '#1f8efa',
-          borderRadius: [8, 8, 0, 0]
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#79dcff' },
+            { offset: 1, color: '#4e8fff' }
+          ]),
+          borderRadius: [12, 12, 0, 0],
+          shadowBlur: 24,
+          shadowColor: 'rgba(92, 157, 255, 0.22)'
         },
         data: projectSummary.value.map((item) => item.hours)
       }
@@ -118,6 +149,9 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="ticket-page">
+    <div class="background-orb orb-c"></div>
+    <div class="background-orb orb-d"></div>
+
     <header class="page-header">
       <div>
         <p class="eyebrow">Workbench</p>
